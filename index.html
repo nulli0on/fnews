@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AhmadNews – Eilmeldung: Neue Beschlüsse zur Drogenpolitik</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --red: #c0392b;
+      --dark: #111827;
+      --line: #e5e7eb;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--dark);
+      color: #9ca3af;
+      font-size: 13px;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .topbar-inner {
+      width: min(1140px, 94%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .topbar-right span {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* Header */
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      width: min(1140px, 94%);
+      margin: auto;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: var(--dark);
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .header-tagline {
+      text-align: right;
+      font-size: 13px;
+      color: var(--muted);
+      border-left: 2px solid var(--line);
+      padding-left: 15px;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--paper);
+      border-bottom: 2px solid var(--dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .nav-inner {
+      width: min(1140px, 94%);
+      margin: auto;
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding: 12px 0;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-inner a {
+      color: #374151;
+      transition: color 0.2s;
+    }
+
+    .nav-inner a:hover,
+    .nav-inner a.active {
+      color: var(--red);
+    }
+
+    /* Ticker */
+    .ticker {
+      background: var(--red);
+      color: white;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+
+    .ticker-inner {
+      width: min(1140px, 94%);
+      margin: auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .ticker-label {
+      background: white;
+      color: var(--red);
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 900;
+      border-radius: 2px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    /* Layout */
+    .page {
+      width: min(1140px, 94%);
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 30px;
+    }
+
+    /* Main Article */
+    article {
+      background: var(--paper);
+      padding: 35px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .category {
+      color: var(--red);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 40px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .subtitle {
+      font-family: "Georgia", serif;
+      font-size: 20px;
+      line-height: 1.4;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+
+    .meta {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 360px;
+      background: linear-gradient(135deg, #1e293b, #475569);
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 20px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .hero-image::after {
+      content: "BUNDESREGIERUNG BERLIN";
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 4px 8px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-family: sans-serif;
+    }
+
+    .image-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    article p {
+      font-family: "Georgia", serif;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #27272a;
+    }
+
+    .dropcap::first-letter {
+      float: left;
+      font-size: 65px;
+      line-height: 0.8;
+      padding-top: 4px;
+      padding-right: 10px;
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--red);
+      padding-left: 20px;
+      margin: 30px 0;
+      font-family: "Georgia", serif;
+      font-size: 22px;
+      line-height: 1.4;
+      font-style: italic;
+      color: #111827;
+    }
+
+    h2 {
+      font-family: "Georgia", serif;
+      font-size: 26px;
+      margin: 30px 0 15px;
+      color: var(--dark);
+    }
+
+    /* Sidebar */
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .side-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .side-title {
+      border-bottom: 2px solid var(--dark);
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ranked-item {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ranked-item:last-child {
+      border-bottom: none;
+    }
+
+    .ranked-num {
+      color: var(--red);
+      font-family: "Georgia", serif;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .ranked-text b {
+      font-size: 14px;
+      line-height: 1.3;
+      display: block;
+      color: var(--dark);
+    }
+
+    .ranked-text span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Comments Section */
+    .comment-section {
+      background: var(--paper);
+      margin-top: 30px;
+      padding: 30px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .comment-section h3 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      font-family: "Georgia", serif;
+    }
+
+    .comment {
+      border-top: 1px solid var(--line);
+      padding: 15px 0;
+    }
+
+    .comment:first-of-type {
+      border-top: none;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .comment-author {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .comment-date {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .comment p {
+      font-size: 14px;
+      color: #4b5563;
+      font-family: sans-serif;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      margin-top: 50px;
+      border-top: 4px solid var(--red);
+    }
+
+    .footer-inner {
+      width: min(1140px, 94%);
+      margin: auto;
+      padding: 40px 0;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      font-size: 14px;
+    }
+
+    .footer-logo {
+      font-family: "Georgia", serif;
+      font-size: 26px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-disclaimer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #6b7280;
+      border-top: 1px solid #1f2937;
+      padding-top: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div>Mittwoch, 22. Juli 2026 · Ausgabe Deutschland</div>
+      <div class="topbar-right">
+        <span>AhmadNews Digital</span> | Unabhängiger Journalismus
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">Ahmad<span>News</span></div>
+      <div class="header-tagline">
+        Nachrichten, Analysen & Hintergründe<br />
+        Tagesaktuelle Berichterstattung
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="active">Eilmeldungen</a>
+      <a href="#">Politik</a>
+      <a href="#">Wirtschaft</a>
+      <a href="#">Gesellschaft</a>
+      <a href="#">Kultur</a>
+      <a href="#">Wissen</a>
+    </div>
+  </nav>
+
+  <!-- Live Ticker -->
+  <section class="ticker">
+    <div class="ticker-inner">
+      <div class="ticker-label">EILMELDUNG</div>
+      <div>Gesetzesentwurf im Kabinett: Bundesregierung plant kontrollierten Verkauf ab kommendem Jahr</div>
+    </div>
+  </section>
+
+  <!-- Main Content Page -->
+  <main class="page">
+
+    <!-- Left Column: Article & Comments -->
+    <div class="main-content">
+      <article>
+        <div class="category">Politik · Drogenpolitik</div>
+        <h1>Neue Drogenpolitik: Bundesregierung beschließt Abgabe von Kokain unter strengen Auflagen</h1>
+        <div class="subtitle">
+          Ein überraschender Gesetzentwurf sorgt für Debatten: Der Erwerb soll künftig in Fachgeschäften erlaubt sein – allerdings nur mit einem behördlichen „Sachkundenachweis“.
+        </div>
+
+        <div class="meta">
+          <span>Von Redaktion Berlin</span>
+          <span>•</span>
+          <span>22. Juli 2026</span>
+          <span>•</span>
+          <span>3 Min. Lesezeit</span>
+        </div>
+
+        <!-- Social Media Buttons -->
+        <div style="display: flex; gap: 8px; margin-bottom: 20px; font-size: 12px; font-weight: bold; font-family: sans-serif;">
+          <span style="background: #25D366; color: white; padding: 5px 10px; border-radius: 3px;">WhatsApp</span>
+          <span style="background: #000000; color: white; padding: 5px 10px; border-radius: 3px;">X</span>
+          <span style="background: #e5e7eb; color: #374151; padding: 5px 10px; border-radius: 3px;">🔗 Link kopieren</span>
+        </div>
+
+        <!-- Echtes Pressefoto -->
+        <!-- Echtes Pressefoto (Lokal gehostet) -->
+        <img src="durgs.jpg" alt="Kokain" style="width: 100%; height: 360px; object-fit: cover; border-radius: 4px; margin-bottom: 8px;">
+
+
+        <div class="image-caption">
+          Vertreter der Regierungsfraktionen stellten die Pläne am Mittwochmorgen in Berlin vor.
+        </div>
+
+
+        <p class="dropcap">
+          Berlin – In einer überraschenden Entscheidung hat das Bundeskabinett am Mittwochmorgen einen Gesetzentwurf zur Neuregelung von Betäubungsmitteln auf den Weg gebracht. Wie das Gesundheitsministerium mitteilte, soll der Erwerb von Kokain für Volljährige ab dem kommenden Jahr unter strengen staatlichen Auflagen entkriminalisiert werden.
+        </p>
+
+        <p>
+          Ziel der Maßnahme sei es, dem Schwarzmarkt und der organisierten Kriminalität die Grundlage zu entziehen. Der Verkauf soll ausschließlich in lizenzierten Fachgeschäften stattfinden. Konsumenten müssen dafür vorab einen sogenannten „Pulverführerschein“ erwerben, für den eine theoretische Schulung über gesundheitliche Risiken und Prävention absolviert werden muss.
+        </p>
+
+        <blockquote>
+          „Wir wählen einen pragmatischen Weg: Durch staatliche Kontrolle schützen wir Verbraucher und entlasten zeitgleich die Polizeibehörden.“
+        </blockquote>
+
+        <p>
+          Pro Person gelte eine strikte Abgabemenge von maximal einem Gramm pro Monat. Der Konsum an öffentlichen Orten, in Schulen, öffentlichen Verkehrsmitteln sowie am Arbeitsplatz bleibt weiterhin strengstens untersagt und wird bei Verstößen mit hohen Geldbußen geahndet.
+        </p>
+
+        <h2>Wirtschaft und Verbände reagieren gespalten</h2>
+        <p>
+          Die Reaktionen auf den Beschluss fielen gemischt aus. Während Kriminalitätsforscher die Pläne als wissenschaftlich fundierten Schritt lobten, äußerten Ärzteverbände Bedenken bezüglich der gesundheitlichen Langzeitfolgen. Auch aus der Wirtschaft gibt es Kritik: Sprecher der Kaffeeproduzenten befürchten, dass die Maßnahme das Konsumverhalten in Deutschland nachhaltig verändern könnte.
+Author: Ahmad Hassan Abdulaziz Mohammed bin Ali Al-Mutairi bin Salman
+        </p>
+      </article>
+
+      <!-- Comments Section -->
+      <section class="comment-section">
+        <h3>Leserdiskussion (2 Kommentare)</h3>
+
+        <div class="comment">
+          <div class="comment-header">
+            <span class="comment-author">Michael_B</span>
+            <span class="comment-date">vor 15 Minuten</span>
+          </div>
+          <p>
+            Das kann doch nicht ihr Ernst sein! Wie soll das kontrolliert werden? Ein Führerschein schützt doch niemanden vor den Gefahren.
+          </p>
+        </div>
+
+        <div class="comment">
+          <div class="comment-header">
+            <span class="comment-author">Sarah_K</span>
+            <span class="comment-date">vor 32 Minuten</span>
+          </div>
+          <p>
+            Endlich ein macht mein Leben wieder sinn. Ich kann endlich Kokain kaufen ohne Angst vor der Polizei zu haben.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside>
+      <div class="side-card">
+        <div class="side-title">Meistgelesen</div>
+
+        <div class="ranked-item">
+          <div class="ranked-num">1</div>
+          <div class="ranked-text">
+            <b>Neues Drogen-Gesetz beschlossen</b>
+            <span>Politik · Vor 1 Std.</span>
+          </div>
+        </div>
+
+        <div class="ranked-item">
+          <div class="ranked-num">2</div>
+          <div class="ranked-text">
+            <b>Bahn kündigt neue Großbaustellen für Sommer an</b>
+            <span>Infrastruktur · Vor 3 Std.</span>
+          </div>
+        </div>
+
+        <div class="ranked-item">
+          <div class="ranked-num">3</div>
+          <div class="ranked-text">
+            <b>Wetterumschwung bringt Unwetterwarnungen</b>
+            <span>Panorama · Vor 5 Std.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">Hintergrund</div>
+        <p style="font-size: 13px; color: #4b5563;">
+          Aktuelle Gutachten zeigen, dass Regulierung und Aufklärung drastisch effektiver bei der Bekämpfung des Schwarzmarktes sind als reine Verbote.
+        </p>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">AhmadNews</div>
+        <p>AhmadNews Berichterstattung – Unabhängig, objektiv und tagesaktuell.</p>
+        <p class="footer-disclaimer">
+          <strong>Hinweis:</strong> ...
+        </p>
+      </div>
+      <div>
+        <strong>Kontakt & Impressum</strong><br />
+        AhmadNews Redaktion Berlin<br />
+        E-Mail: redaktion@ahmad-news.de<br />
+        © 2026 AhmadNews Media Group
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
